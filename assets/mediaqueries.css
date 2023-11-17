@@ -172,7 +172,7 @@
   }
   .navbar a {
     color: var(--blanco);
-    font-size: 2.5rem;
+    font-size: 2rem;
     border-bottom: none;
   }
   #menu-toggle:checked + .navbar {
@@ -183,6 +183,7 @@
   label.menu-label > i {
     color: var(--blanco);
     font-size: 30px;
+    margin-left: -50px;
   }
   label.menu-label > i:hover {
     color: var(--secondary);
