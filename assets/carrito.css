@@ -1,0 +1,160 @@
+/*carrito*/
+.cart {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  padding: 50px 30px;
+  background: linear-gradient(to top, #000, var(--background));
+  border-left: 1px solid var(--nav-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  z-index: 2;
+  min-width: 375px;
+  transform: translate(200%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/*OCULTAR BARRA DE SCROLL DEL CARRITO*/
+
+.cart::-webkit-scrollbar {
+  display: none;
+}
+
+.cart h2 {
+  color: var(--blanco);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #2323234e;
+  padding: 20px;
+  border: 1px solid var(--electric);
+  border-radius: 10px;
+}
+
+.cart-item img {
+  width: 65px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 110px;
+}
+
+.item-titulo {
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.item-precio {
+  color: var(--secondary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.item-handler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cantidad-handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: var(--blanco);
+  font-weight: 400;
+}
+
+.item-cantidad {
+  color: var(--blanco);
+}
+
+.up {
+  border: 1px solid var(--primary);
+}
+
+.down {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.divider {
+  margin-top: 20px;
+  border: 0.5px solid var(--secondary);
+  width: 100%;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.cart-total p {
+  color: var(--blanco);
+  font-weight: 700;
+}
+
+.cart-total span {
+  color: var(--blanco);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.boton-comprar {
+  background-color: var(--secondary);
+}
+
+.boton-comprar:hover {
+  background-color: var(--background);
+}
+
+/*Toggle del carro*/
+.abrir-carrito {
+  transform: translate(0%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+}
+
+.empty-msg {
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
+/*Overlay*/
+.overlay {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+.mostrar-overlay {
+  display: block !important;
+}

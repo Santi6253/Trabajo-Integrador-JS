@@ -1,0 +1,493 @@
+:root {
+  --background: #33404d;
+  --primary: #2487e6;
+  --secondary: #2eb3ae;
+  --blanco: #fff;
+  --negro: #000;
+  --gris-oscuro: #282e38;
+  --gris-claro: #dbdbdb;
+}
+
+* {
+  font-family: "Play", sans-serif;
+  line-height: 1em;
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 65px;
+}
+
+.ocultar {
+  display: none;
+}
+.mostrar {
+  display: flex !important;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  animation: fadeIn 2s;
+  color: var(--blanco);
+}
+h2 {
+  font-size: 3rem;
+  color: var(--blanco);
+}
+h3 {
+  font-size: 2.5rem;
+  color: var(--blanco);
+  animation: fadeIn 2s;
+}
+h4 {
+  font-size: 1.5rem;
+  color: var(--blanco);
+}
+h5 {
+  font-size: 1.2rem;
+  color: var(--blanco);
+}
+
+.boton {
+  text-align: center;
+  font-weight: 900;
+  padding: 15px 20px;
+  background-color: var(--primary);
+  color: var(--blanco);
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  animation: fadeInUp 1s;
+}
+
+.boton:hover {
+  background-color: var(--secondary);
+  transition: 0.5s;
+}
+
+body {
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--background);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 1100px;
+  padding: 40px;
+}
+
+/*header {
+  margin-bottom: -120px;
+}*/
+
+.header-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--background);
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  left: 0;
+  z-index: 999;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 10px;
+  align-items: center;
+  width: 1100px;
+}
+
+.logo {
+  animation: fadeInUp 2s;
+}
+
+.navbar-list ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.navbar-list a {
+  color: var(--blanco);
+  font-weight: 600;
+  padding: 8px 10px;
+  margin: 0 10px;
+  text-decoration: none;
+  border-bottom: var(--background) solid 2px;
+}
+
+.navbar-list a:hover {
+  border-bottom: var(--primary) solid 2px;
+  transition: border-bottom 0.5s;
+}
+
+#menu-toggle,
+.menu-label {
+  display: none;
+}
+
+.cart-icon {
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-right: 1rem;
+  color: var(--blanco);
+  cursor: pointer;
+  position: relative;
+}
+.cart-bubble {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  text-align: center;
+  background: var(--primary);
+  color: var(--blanco);
+  font-size: 10px;
+  font-weight: 500;
+  height: 18px;
+  width: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1px;
+  border-radius: 50%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+#hero {
+  width: 100%;
+  background-image: url(./img/Inshus\ Posters\ -\ Portada.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#hero .container {
+  width: 100%;
+  height: 100%;
+  padding: 180px 60px;
+  justify-content: center;
+  gap: 40px;
+}
+
+#hero h1 {
+  font-size: 5rem !important;
+}
+
+#hero h3 {
+  padding-right: 40%;
+}
+
+#hero .boton {
+  width: 180px;
+}
+
+#about {
+  background-color: var(--gris-oscuro);
+  border-top: var(--secondary) solid 4px;
+}
+
+#about .container {
+  padding: 120px 60px;
+}
+
+.about-titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+#about img {
+  width: 80px;
+}
+
+#about p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.about-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 10px;
+  animation: fadeInUp 2s;
+}
+.about-cards h4 {
+  text-align: center;
+}
+.about-cards h5 {
+  text-align: center;
+  font-weight: normal;
+}
+
+#productos {
+  background-color: var(--primary);
+  border-top: var(--secondary) solid 4px;
+  padding-bottom: 120px;
+}
+
+#productos .container {
+  justify-content: space-between;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+#productos h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container-productos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.categorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.categoria {
+  background: var(--secondary);
+  padding: 10px 15px;
+  color: var(--blanco);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.categoria:hover {
+  background: var(--background);
+}
+
+.active {
+  background: var(--background);
+}
+
+.productos-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 320px;
+  padding: 30px 20px;
+  border-radius: 8px;
+  background-color: var(--background);
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 2s;
+}
+
+.productos-cards:hover {
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.75);
+  transition: 0.5s;
+}
+
+.productos-cards h3 {
+  color: var(--blanco);
+  font-size: 1.6rem;
+}
+
+.img-cards {
+  width: 260px;
+}
+.productos-cards p {
+  color: var(--blanco);
+  padding: 0px 20px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.producto-boton {
+  background-color: var(--secondary);
+}
+
+.producto-boton:hover {
+  background-color: var(--primary);
+  transition: 0.5s;
+}
+
+.ver-mas {
+  background-color: var(--secondary);
+  color: var(--blanco);
+}
+
+#contact {
+  border-top: var(--secondary) solid 4px;
+  border-bottom: var(--secondary) solid 4px;
+}
+
+#contact .container {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.contact-colum {
+  display: flex;
+  flex-direction: row;
+}
+
+#contact h2 {
+  text-align: center;
+}
+
+.container-info,
+.container-formulario {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px;
+  justify-content: center;
+}
+
+.redes-sociales {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.redes-sociales a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blanco);
+  animation: fadeInUp 2s;
+}
+
+.redes-sociales a:hover {
+  color: var(--secondary);
+  transition: 0.5s;
+}
+
+.redes-sociales a > i {
+  font-size: 30px;
+  color: var(--blanco);
+}
+
+.redes-sociales a > i:hover {
+  color: var(--secondary);
+  transition: 0.5s;
+}
+
+iframe {
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.campos-formulario,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border: var(--secondary) solid 2px;
+  border-radius: 40px;
+  animation: fadeInUp 0.8s;
+}
+textarea {
+  border-radius: 20px;
+}
+
+.label-formulario {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blanco);
+  margin-top: 5px;
+  animation: fadeInUp 0.8s;
+}
+
+.back-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: var(--secondary);
+  cursor: pointer;
+  animation: fadeInUp 2s;
+}
+
+.back-top i {
+  font-size: 25px;
+  color: var(--blanco);
+}
+
+.back-top:hover {
+  background-color: var(--primary);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 20px;
+  background-color: var(--gris-oscuro);
+}
+
+footer p {
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+.footer-mobile {
+  display: none;
+}
