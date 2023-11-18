@@ -7,10 +7,17 @@ const botonCarrito = document.querySelector(".cart-label");
 const menu = document.querySelector(".navbar");
 const carrito = document.querySelector(".cart");
 const overlay = document.querySelector(".overlay");
+const contenedorCarrito = document.querySelector(".cart-container");
+const labelTotal = document.querySelector(".total");
+const vaciar = document.querySelector(".vaciar");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 console.log("CARRITO ==> ", cart);
+
+const saveCart = () => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
 
 // Cargar Productos
 
@@ -139,7 +146,93 @@ cerrarMenu = (e) => {
 
 // Carrito
 
-renderCart = () => {};
+const crearTemplateProductosCarrito = (e, i) => {
+  const { id, name, precio, poster, cuantity } = e;
+  return `
+  <div class="cart-item">
+              <img
+                src="${poster}"
+                alt="${name}"
+              />
+              <div class="item-info">
+                <h3 class="item-titulo">${name}</h3>
+                <span class="item-precio">$${precio}</span>
+              </div>
+              <div class="item-handler">
+                <span class="cantidad-handler down" data-id="${id}">-</span>
+                <span class="item-cantidad">${cuantity}</span>
+                <span class="cantidad-handler up" data-id="${id}">+</span>
+              </div>
+  </div>
+  `;
+};
+
+const renderCart = () => {
+  if (!cart.length) {
+    contenedorCarrito.innerHTML = `<p class="item-titulo"> No hay productos en el carrito. </p>`;
+    return;
+  }
+  contenedorCarrito.innerHTML = cart
+    .map(crearTemplateProductosCarrito)
+    .join("");
+};
+
+const crearDataProducto = (producto) => {
+  const { id, name, precio, poster } = producto;
+  return { id, name, precio, poster };
+};
+
+const agregarProducto = (e) => {
+  if (!e.target.classList.contains("producto-boton")) return;
+  const producto = crearDataProducto(e.target.dataset);
+  if (existeProducto(producto)) {
+    agregarCantidadProducto(productos);
+  } else {
+    crearProductoCarrito(producto);
+  }
+  console.log(cart);
+  actualizarCarrito();
+};
+
+const existeProducto = (producto) => {
+  return cart.some((item) => item.id === producto.id);
+};
+
+//Esto no funciona
+const agregarCantidadProducto = (producto) => {
+  cart = cart.map((cartProducto) => {
+    return cartProducto.id === producto.id
+      ? { ...cartProducto, quantity: cartProducto.quantity + 1 }
+      : cartProducto;
+  });
+};
+
+const crearProductoCarrito = (producto) => {
+  cart = [...cart, { ...producto, quantity: 1 }];
+};
+
+const mostarTotal = () => {
+  const total = cart.reduce((acc, cur) => acc + Number(cur.precio), 0);
+  labelTotal.textContent = `$${total}`;
+};
+
+const borrarCarrito = () => {
+  if (window.confirm("Estás seguro que queres vaciar el carrito?")) {
+    borrarItemsCarrito();
+    alert("tu carrito está vacío");
+  }
+};
+
+const borrarItemsCarrito = () => {
+  cart = [];
+  actualizarCarrito();
+};
+
+const actualizarCarrito = () => {
+  saveCart();
+  renderCart();
+  mostarTotal();
+};
 
 const init = () => {
   renderProductos(appState.products[appState.currentProductsIndex]);
@@ -150,7 +243,10 @@ const init = () => {
   botonCarrito.addEventListener("click", toggleCarrito);
   overlay.addEventListener("click", cerrarTodo);
   window.addEventListener("scroll", cerrarTodo);
-  window.addEventListener("DOMContentLoader", renderCart);
+  window.addEventListener("DOMContentLoaded", renderCart);
+  containerProductos.addEventListener("click", agregarProducto);
+  window.addEventListener("DOMContentLoaded", mostarTotal);
+  vaciar.addEventListener("click", borrarCarrito);
 };
 
 init();
